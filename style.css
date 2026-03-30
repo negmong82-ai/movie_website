@@ -1,9 +1,9 @@
 :root {
-    --bg-color: #040714; /* Disney+ Signature Deep Navy/Black */
-    --text-color: #f9f9f9;
-    --primary-color: #0063e5; /* Disney+ Blue */
-    --card-bg: #1a1d29;
-    --transition-speed: 250ms;
+    --bg-color: #0c0c0e; /* 쿠팡 플레이 다크 배경 */
+    --text-color: #ffffff;
+    --primary-color: #00a8ff; /* 쿠팡 플레이 시그니처 블루 */
+    --card-bg: #1a1a1e;
+    --transition-speed: 0.25s;
 }
 
 * {
@@ -20,80 +20,72 @@ body {
     overflow-x: hidden;
 }
 
-/* Header Navbar */
+/* Header Navbar - 깔끔하고 정제된 스타일 */
 .navbar {
     padding: 15px 4%;
-    background-color: var(--bg-color);
+    background-color: rgba(12, 12, 14, 0.95);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 100;
     display: flex;
     align-items: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* 아주 은은한 경계선 */
+    backdrop-filter: blur(10px); /* 스크롤 시 고급스러운 블러 효과 */
 }
 
 .logo {
-    color: var(--text-color);
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    background: linear-gradient(to right, #0063e5, #00d2ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
 .subtitle {
-    color: rgba(249, 249, 249, 0.6);
-    font-size: 0.9rem;
-    font-weight: 400;
-    margin-left: 15px;
-    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-left: 10px;
+    letter-spacing: -0.3px;
 }
 
 /* Main Content */
 .main-content {
-    padding: 110px 4% 80px;
+    padding: 100px 4% 80px;
 }
 
 .movie-section {
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 }
 
 .section-title {
-    font-size: 1.3rem;
-    margin-bottom: 25px;
-    font-weight: 600;
-    color: rgba(249, 249, 249, 0.8);
-    letter-spacing: 1px;
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--text-color);
+    letter-spacing: -0.5px;
 }
 
-/* Movie Grid */
+/* Movie Grid - 네트플릭스/디즈니보다 약간 더 촘촘하고 정갈한 간격 */
 .movie-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px; 
 }
 
-/* Movie Card - Disney+ Style */
+/* Movie Card - 쿠팡 플레이 스타일: 매우 심플한 직사각형 */
 .movie-card {
     position: relative;
-    border-radius: 10px;
+    border-radius: 4px; /* 곡률을 줄여 모던하고 샤프한 느낌 */
     overflow: hidden;
     cursor: pointer;
     background-color: var(--card-bg);
-    border: 3px solid rgba(249, 249, 249, 0.1);
-    box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
-                rgb(0 0 0 / 73%) 0px 16px 10px -10px;
-    transition: all var(--transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
 .movie-card:hover {
-    transform: scale(1.05);
-    border-color: rgba(249, 249, 249, 0.8);
-    box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px,
-                rgb(0 0 0 / 72%) 0px 30px 22px -10px;
+    transform: translateY(-5px) scale(1.02); /* 디즈니+처럼 화려하지 않고, 살짝 들썩이는 깔끔한 모션 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
     z-index: 10;
 }
 
@@ -102,7 +94,6 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
-    aspect-ratio: 16 / 9; /* Disney+ style often uses wider cards or standard posters, let's keep 2/3 for TMDB posters but Disney cards feel better 16/9 for thumbnails */
     aspect-ratio: 2 / 3;
 }
 
@@ -112,8 +103,8 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 20px 15px 15px;
-    background: linear-gradient(to top, rgba(4, 7, 20, 1) 0%, rgba(4, 7, 20, 0.8) 50%, rgba(4, 7, 20, 0) 100%);
+    padding: 30px 15px 15px;
+    background: linear-gradient(to top, rgba(12, 12, 14, 0.95) 0%, rgba(12, 12, 14, 0.6) 60%, transparent 100%);
     opacity: 0;
     transition: opacity var(--transition-speed) ease;
 }
@@ -123,31 +114,33 @@ body {
 }
 
 .movie-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 5px;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    letter-spacing: -0.3px;
 }
 
 .movie-rating {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: #ffd700;
+    font-weight: 500;
 }
 
 /* Loading State */
 .loading {
     text-align: center;
     padding: 50px;
-    color: rgba(249, 249, 249, 0.4);
+    color: rgba(255, 255, 255, 0.4);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .movie-grid {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-        gap: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
     }
     
     .logo {
