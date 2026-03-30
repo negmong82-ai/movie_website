@@ -45,7 +45,7 @@ body {
     background-color: rgba(0, 0, 0, 0.75);
     backdrop-filter: saturate(200%) blur(24px);
     -webkit-backdrop-filter: saturate(200%) blur(24px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid var(--brand-color); /* Strong yellow border on scroll */
 }
 
 .logo {
