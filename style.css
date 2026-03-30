@@ -1,9 +1,8 @@
 :root {
-    --bg-color: #0c0c0e; /* 쿠팡 플레이 다크 배경 */
-    --text-color: #ffffff;
-    --primary-color: #00a8ff; /* 쿠팡 플레이 시그니처 블루 */
-    --card-bg: #1a1a1e;
-    --transition-speed: 0.25s;
+    --bg-color: #000000; /* Apple TV+ Pure Black */
+    --text-color: #f5f5f7; /* Apple Off-White */
+    --secondary-text: #86868b; /* Apple Signature Gray */
+    --card-bg: #1d1d1f; 
 }
 
 * {
@@ -15,77 +14,85 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Noto Sans KR', sans-serif;
+    /* Apple's signature system font stack for the most native look */
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.02em;
     overflow-x: hidden;
 }
 
-/* Header Navbar - 깔끔하고 정제된 스타일 */
+/* Header Navbar - Apple's iconic frosted glass (blur) effect */
 .navbar {
-    padding: 15px 4%;
-    background-color: rgba(12, 12, 14, 0.95);
+    padding: 16px 4%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 100;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* 아주 은은한 경계선 */
-    backdrop-filter: blur(10px); /* 스크롤 시 고급스러운 블러 효과 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
-    color: var(--primary-color);
-    font-size: 1.6rem;
-    font-weight: 800;
-    letter-spacing: -0.5px;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    display: flex;
+    align-items: center;
 }
 
 .subtitle {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.95rem;
+    color: var(--secondary-text);
+    font-size: 1rem;
     font-weight: 500;
-    margin-left: 10px;
-    letter-spacing: -0.3px;
+    margin-left: 8px;
+    letter-spacing: -0.02em;
 }
 
 /* Main Content */
 .main-content {
-    padding: 100px 4% 80px;
+    padding: 120px 4% 80px;
 }
 
 .movie-section {
-    margin-bottom: 45px;
+    margin-bottom: 60px; /* Apple uses generous whitespace */
 }
 
 .section-title {
-    font-size: 1.25rem;
-    margin-bottom: 15px;
+    font-size: 1.5rem; /* Larger, bolder titles */
+    margin-bottom: 24px;
     font-weight: 700;
     color: var(--text-color);
-    letter-spacing: -0.5px;
+    letter-spacing: -0.04em;
 }
 
-/* Movie Grid - 네트플릭스/디즈니보다 약간 더 촘촘하고 정갈한 간격 */
+/* Movie Grid */
 .movie-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px; 
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px; /* More breathing room between cards */
 }
 
-/* Movie Card - 쿠팡 플레이 스타일: 매우 심플한 직사각형 */
+/* Movie Card - Apple Style: Highly rounded, no thick borders, elegant floating shadow */
 .movie-card {
     position: relative;
-    border-radius: 4px; /* 곡률을 줄여 모던하고 샤프한 느낌 */
+    border-radius: 12px; /* Apple's smooth rounded corners */
     overflow: hidden;
     cursor: pointer;
     background-color: var(--card-bg);
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+    /* 0.4s cubic-bezier creates that distinct Apple "springly/fluid" motion */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
 }
 
 .movie-card:hover {
-    transform: translateY(-5px) scale(1.02); /* 디즈니+처럼 화려하지 않고, 살짝 들썩이는 깔끔한 모션 */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    transform: scale(1.05); /* Smooth, refined scale */
+    /* Outer black glow + very subtle inner white glow for rim lighting */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
     z-index: 10;
 }
 
@@ -97,35 +104,37 @@ body {
     aspect-ratio: 2 / 3;
 }
 
-/* Movie Info Overlay */
+/* Movie Info Overlay - Soft gradient */
 .movie-info {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 30px 15px 15px;
-    background: linear-gradient(to top, rgba(12, 12, 14, 0.95) 0%, rgba(12, 12, 14, 0.6) 60%, transparent 100%);
+    padding: 40px 16px 16px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 40%, transparent 100%);
     opacity: 0;
-    transition: opacity var(--transition-speed) ease;
+    transition: opacity 0.4s ease;
 }
 
 .movie-card:hover .movie-info {
     opacity: 1;
 }
 
+/* Typography refinements */
 .movie-title {
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 4px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    letter-spacing: -0.3px;
+    letter-spacing: -0.02em;
+    color: #ffffff;
 }
 
 .movie-rating {
     font-size: 0.85rem;
-    color: #ffd700;
+    color: #f5f5f7;
     font-weight: 500;
 }
 
@@ -133,17 +142,17 @@ body {
 .loading {
     text-align: center;
     padding: 50px;
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--secondary-text);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .movie-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 16px;
     }
     
     .logo {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 }
