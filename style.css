@@ -164,6 +164,53 @@ body {
     color: var(--secondary-text);
 }
 
+/* Footer Section - Apple TV+ Style */
+.footer {
+    background-color: var(--card-bg);
+    padding: 60px 4%;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-logo {
+    color: var(--brand-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    display: flex;
+    align-items: center;
+}
+
+.footer-subtitle {
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 6px;
+}
+
+.footer-description {
+    color: #a1a1a6;
+    font-size: 0.9rem;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+.footer-copyright {
+    color: var(--secondary-text);
+    font-size: 0.8rem;
+    margin-top: 20px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .movie-grid {
