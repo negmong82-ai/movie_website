@@ -69,26 +69,22 @@ body {
     letter-spacing: -0.02em;
 }
 
-/* Main Content - Full width for alternating backgrounds */
+/* Main Content - Restored compact height and unified black background */
 .main-content {
-    padding: 100px 0 80px;
+    padding: 80px 0 80px; 
 }
 
 .movie-section {
-    padding: 60px 4%;
-    /* Unified spacing */
-    margin-bottom: 0;
+    padding: 60px 4% 40px; /* Unified spacing */
+    background-color: var(--bg-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Subtle, elegant separator */
+    position: relative;
     transition: background-color 0.3s ease;
 }
 
-/* 3. 섹션별 배경 대비 (Alternating Backgrounds) */
-.movie-section:nth-child(even) {
-    background-color: #000000;
-}
-
-.movie-section:nth-child(odd) {
-    background-color: #0b0b0d;
-    /* Subtle warm charcoal grey */
+/* Specific section handling - Remove bottom border from last section to look cleaner */
+.movie-section:last-of-type {
+    border-bottom: none;
 }
 
 /* 1. 섹션 헤더 계층 구조 강화 (Enhanced Typography) */
