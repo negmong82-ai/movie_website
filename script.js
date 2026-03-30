@@ -46,3 +46,13 @@ fetchMovies(POPULAR_URL, 'popular-grid');
 fetchMovies(NOW_PLAYING_URL, 'now-playing-grid');
 fetchMovies(TOP_RATED_URL, 'top-rated-grid');
 fetchMovies(UPCOMING_URL, 'upcoming-grid');
+
+// 동적 헤더: 스크롤 시 frosted glass 효과 활성화
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
